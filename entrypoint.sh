@@ -6,6 +6,7 @@ if [[ "$*" == "" ]]; then
 fi
 
 if [[ "$*" == "git-diff" ]]; then
+    echo "Using SHA: $GITHUB_SHA"
     FILES=`git diff-tree --no-commit-id --name-only -r $GITHUB_SHA | grep -e "\.pm$" -e "\.pl$" -e "\.cgi$"`
     violations=$(perlcritic $FILES)
 else
