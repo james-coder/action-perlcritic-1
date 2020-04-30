@@ -5,7 +5,13 @@ if [[ "$*" == "" ]]; then
     	exit 1
 fi
 
-violations=$(perlcritic $*)
+if [[ "$*" == "git-diff" ]]; then
+    FILES=`git diff-tree --no-commit-id --name-only -r $GITHUB_SHA | grep -e "\.pm$" -e "\.pl$" -e "\.cgi$"`
+    violations=$(perlcritic $FILES)
+else
+    violations=$(perlcritic $*)
+fi
+
 success=$?
 echo "$violations"
 
