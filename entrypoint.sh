@@ -8,7 +8,7 @@ echo "## perlcritic --version"
 perlcritic --version
 
 echo "## Running perlcritic"
-perlcritic --profile ~/.perlcriticrc --verbose 1 modules/NFFS/*.pm | reviewdog -name="perlcritic" -efm="%f:%l:%c:%m" -reporter="github-pr-check"
+perlcritic --profile .perlcriticrc --verbose 1 modules/NFFS/*.pm | reviewdog -name="perlcritic" -efm="%f:%l:%c:%m" -reporter="github-pr-check"
 
 
 # if [[ "$*" == "" ]]; then
