@@ -4,6 +4,14 @@ author: Difegue
 branding:
   color: blue
   icon: eye
+inputs:
+  args:
+    description: 'args'
+  repo-token:
+    description: 'repo-token'
+  github_token:
+    description: 'GITHUB_TOKEN.'
+    default: '${{ github.token }}'
 runs:
   using: docker
   image: Dockerfile
