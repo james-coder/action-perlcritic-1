@@ -13,7 +13,8 @@ echo "## Running perlcritic"
 perlcritic --gentle --profile /.perlcriticrc modules/NFFS/*.pm | reviewdog -name="perlcritic" -efm="%f:%l:%c:%m" -reporter="github-pr-check"
 
 echo "## Running perl -c (on *.pm)"
-find . -name \*.pm -exec perl -c {} 2>&1 \; | grep -v " syntax OK" | perl -pe 's/(.*) at (\.\/|\/sandpile\/jda\/tenB\/)(.*) line (\d+)(.*)/$3:$4:$1/g' | reviewdog -name="perl-syntax" -efm="%f:%l:%m" -reporter="github-pr-check"
+#find . -name \*.pm -exec perl -c {} 2>&1 \; | grep -v " syntax OK" | perl -pe 's/(.*) at (\.\/|\/sandpile\/jda\/tenB\/)(.*) line (\d+)(.*)/$3:$4:$1/g' | reviewdog -name="perl-syntax" -efm="%f:%l:%m" -reporter="github-pr-check"
+find . -name \*.pm -exec perl -c {} 2>&1 \; | grep -v " syntax OK" 
 
 # if [[ "$*" == "" ]]; then
 # 	echo "Please specify paths in your repo to run Perl Critic on"
