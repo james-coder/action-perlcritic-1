@@ -236,5 +236,7 @@ RUN apt-get update && \
 ENV REVIEWDOG_VERSION=v0.10.0
 RUN wget -O - -q https://raw.githubusercontent.com/reviewdog/reviewdog/master/install.sh| sh -s -- -b /usr/local/bin/ ${REVIEWDOG_VERSION}
 
+ADD .perlcriticrc /.perlcriticrc
+
 ADD entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
