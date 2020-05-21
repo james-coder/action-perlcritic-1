@@ -1,7 +1,5 @@
 FROM debian:jessie
-#FROM avastsoftware/perl_critic:latest
 
-#RUN yum -y install bash ca-certificates coreutils jq git wget
 RUN apt-get update && \
     apt-get upgrade -y && \
     apt-get install -y git unzip wget jq libtest-perl-critic-perl \
