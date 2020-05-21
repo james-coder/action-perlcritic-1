@@ -5,7 +5,6 @@ FROM debian:jessie
 RUN apt-get update && \
     apt-get upgrade -y && \
     apt-get install -y git unzip wget jq libtest-perl-critic-perl \
-    libach-builder-perl \
     libalgorithm-c3-perl \
     libalgorithm-diff-perl \
     libalgorithm-diff-xs-perl \
@@ -63,8 +62,6 @@ RUN apt-get update && \
     libdatetime-set-perl \
     libdatetime-timezone-perl \
     libdatetimex-easy-perl \
-    libdbd-jdbc-perl \
-    libdbd-multi-perl \
     libdbd-mysql-perl \
     libdbi-perl \
     libdevel-caller-perl \
