@@ -9,6 +9,8 @@ perlcritic --version
 
 export REVIEWDOG_GITHUB_API_TOKEN="${INPUT_GITHUB_TOKEN}"
 
+export PERL5LIB="${GITHUB_WORKSPACE}/modules"
+
 echo "## Running perlcritic"
 perlcritic --gentle --profile /.perlcriticrc modules/NFFS/*.pm | reviewdog -name="perlcritic" -efm="%f:%l:%c:%m" -reporter="github-pr-check"
 
