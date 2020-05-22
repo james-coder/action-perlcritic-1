@@ -13,8 +13,6 @@ cpanm -V
 
 echo "## git status"
 git status
-echo "## git fetch --all"
-git fetch --all
 echo "## git branch"
 git branch --all
 echo "## git diff --name-only origin/master"
