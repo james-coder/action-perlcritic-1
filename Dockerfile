@@ -1,4 +1,8 @@
-FROM debian:jessie
+# We used debian:jessie below to build a docker image,
+# then use that image below to speed up GitHub Actions.
+#
+#FROM debian:jessie
+FROM dockerglacier/action-perlcritic:base
 
 RUN apt-get update && \
     apt-get upgrade -y && \
