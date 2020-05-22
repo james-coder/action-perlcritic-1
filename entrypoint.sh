@@ -1,6 +1,7 @@
 #!/bin/bash
 
 cd ${GITHUB_WORKSPACE}
+ls -altr
 
 echo "## reviewdog --version"
 reviewdog --version
