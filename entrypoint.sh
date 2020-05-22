@@ -12,6 +12,7 @@ echo "## cpanm -V"
 cpanm -V
 
 echo "## git diff --name-only origin/master"
+ls -altr
 git diff --name-only origin/master
 
 echo "## Running cpanm --installdeps ."
