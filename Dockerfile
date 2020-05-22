@@ -243,8 +243,8 @@ RUN wget -O - -q https://raw.githubusercontent.com/reviewdog/reviewdog/master/in
 
 ADD .perlcriticrc /.perlcriticrc
 
-RUN wget -O /cpanfile -q https://raw.githubusercontent.com/james-coder/nf-web/master/cpanfile?token=ADFFZRM2LMPHMOR6HLRYHYK62CFFG
-RUN cpanm --installdeps /cpanfile
+#RUN wget -O /cpanfile -q https://raw.githubusercontent.com/james-coder/nf-web/master/cpanfile?token=ADFFZRM2LMPHMOR6HLRYHYK62CFFG
+#RUN cpanm --installdeps /cpanfile
 
 ADD entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
