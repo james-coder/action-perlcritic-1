@@ -6,6 +6,10 @@ echo "## perl --version"
 perl --version
 echo "## perlcritic --version"
 perlcritic --version
+echo "## cpanm -V"
+cpanm -V
+
+cpanm --installdeps . 
 
 export REVIEWDOG_GITHUB_API_TOKEN="${INPUT_GITHUB_TOKEN}"
 
@@ -14,9 +18,11 @@ export PERL5LIB="${GITHUB_WORKSPACE}/modules"
 echo "## Running perlcritic"
 perlcritic --gentle --profile /.perlcriticrc modules/NFFS/*.pm | reviewdog -name="perlcritic" -efm="%f:%l:%c:%m" -reporter="github-pr-check"
 
+export ESC_GITHUB_WORKSPACE=$(echo "$GITHUB_WORKSPACE" | perl -pe 's/\//\\\//g')
+export SUBSTR="s/(.*) at (\.\/|$ESC_GITHUB_WORKSPACE)(.*) line (\d+)(.*)/\$3:\$4:\$1/g"
+
 echo "## Running perl -c (on *.pm)"
-#find . -name \*.pm -exec perl -c {} 2>&1 \; | grep -v " syntax OK" | perl -pe 's/(.*) at (\.\/|\/sandpile\/jda\/tenB\/)(.*) line (\d+)(.*)/$3:$4:$1/g' | reviewdog -name="perl-syntax" -efm="%f:%l:%m" -reporter="github-pr-check"
-find . -name \*.pm -exec perl -c {} 2>&1 \; | grep -v " syntax OK" 
+find . -name \*.pm -exec perl -c {} 2>&1 \; | grep -v " syntax OK" | perl -pe "$SUBSTR" | reviewdog -name="perl-syntax" -efm="%f:%l:%m" -reporter="github-pr-check"
 
 # if [[ "$*" == "" ]]; then
 # 	echo "Please specify paths in your repo to run Perl Critic on"
