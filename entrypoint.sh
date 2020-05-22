@@ -11,8 +11,8 @@ perlcritic --version
 echo "## cpanm -V"
 cpanm -V
 
-echo "## git diff master -- test"
-git diff master
+echo "## git diff --name-only origin/master"
+git diff --name-only origin/master
 
 echo "## Running cpanm --installdeps ."
 cpanm --installdeps --force --notest . 
