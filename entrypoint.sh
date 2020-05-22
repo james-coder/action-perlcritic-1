@@ -20,7 +20,7 @@ export PERL5LIB="${GITHUB_WORKSPACE}/modules"
 
 echo "## Running perlcritic"
 perlcritic --gentle --profile /.perlcriticrc modules/NFFS/*.pm |
-   reviewdog -name="perlcritic" -efm="%f:%l:%c:%m" -reporter="github-pr-check"
+   reviewdog -name="perlcritic" -filter-mode=file -fail-on-error -efm="%f:%l:%c:%m" -reporter="github-pr-check"
 
 export ESC_GITHUB_WORKSPACE=$(echo "$GITHUB_WORKSPACE" | perl -pe 's/\//\\\//g')
 
