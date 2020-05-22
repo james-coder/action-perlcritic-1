@@ -11,6 +11,9 @@ perlcritic --version
 echo "## cpanm -V"
 cpanm -V
 
+echo "## git diff master -- test"
+git diff master
+
 echo "## Running cpanm --installdeps ."
 cpanm --installdeps --force --notest . 
 
