@@ -1,5 +1,7 @@
 #!/bin/bash
 
+cd ${GITHUB_WORKSPACE}
+
 echo "## reviewdog --version"
 reviewdog --version
 echo "## perl --version"
