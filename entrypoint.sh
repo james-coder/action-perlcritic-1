@@ -1,6 +1,12 @@
 #!/bin/bash
 
+echo "## Current directory:"
+pwd
+
 cd ${GITHUB_WORKSPACE}
+
+echo "## Current directory:"
+pwd
 
 echo "## reviewdog --version"
 reviewdog --version
