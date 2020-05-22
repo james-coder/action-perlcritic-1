@@ -19,7 +19,7 @@ export REVIEWDOG_GITHUB_API_TOKEN="${INPUT_GITHUB_TOKEN}"
 export PERL5LIB="${GITHUB_WORKSPACE}/modules"
 
 echo "## Running perlcritic"
-find . -regex '.*\.\(pl\|pm\)' -exec perlcritic --gentle --profile /.perlcriticrc {} \; |
+find . -regex '.*\.\(pl\|pm\|cgi\)' -exec perlcritic --gentle --profile /.perlcriticrc {} \; |
    reviewdog -name="perlcritic" -filter-mode=file -efm="%f:%l:%c:%m" -reporter="github-pr-check"
 
 #export ESC_GITHUB_WORKSPACE=$(echo "$GITHUB_WORKSPACE" | perl -pe 's/\//\\\//g')
@@ -29,7 +29,7 @@ find . -regex '.*\.\(pl\|pm\)' -exec perlcritic --gentle --profile /.perlcriticr
 export SUBSTR="s/(.*) at (.\/|\/github\/workspace\/)(.*) line (\d+)(.*)/\$3:\$4:\$1/g"
 
 echo "## Running perl -c (on *.pm)"
-find . -regex '.*\.\(pl\|pm\)' -exec perl -c {} 2>&1 \; |
+find . -regex '.*\.\(pl\|pm\|cgi\)' -exec perl -c {} 2>&1 \; |
    grep -v " syntax OK" |
    perl -pe "$SUBSTR" |
    reviewdog -name="perl-syntax" -filter-mode=file  -efm="%f:%l:%m" -reporter="github-pr-check"
