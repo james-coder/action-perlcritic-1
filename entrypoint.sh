@@ -12,7 +12,7 @@ echo "## cpanm -V"
 cpanm -V
 
 echo "## Running cpanm --installdeps ."
-#cpanm --installdeps . 
+cpanm --installdeps --force --notest . 
 
 export REVIEWDOG_GITHUB_API_TOKEN="${INPUT_GITHUB_TOKEN}"
 
