@@ -2,7 +2,8 @@ FROM debian:jessie
 
 RUN apt-get update && \
     apt-get upgrade -y && \
-    apt-get install -y git unzip wget jq cpanminus libtest-perl-critic-perl \
+    apt-get install -y git unzip wget jq cpanminus build-essential make \
+    libtest-perl-critic-perl \
     libalgorithm-c3-perl \
     libalgorithm-diff-perl \
     libalgorithm-diff-xs-perl \
