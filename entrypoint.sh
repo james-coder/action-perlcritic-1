@@ -11,6 +11,7 @@ perlcritic --version
 echo "## cpanm -V"
 cpanm -V
 
+echo "## Running cpanm --installdeps ."
 cpanm --installdeps . 
 
 export REVIEWDOG_GITHUB_API_TOKEN="${INPUT_GITHUB_TOKEN}"
