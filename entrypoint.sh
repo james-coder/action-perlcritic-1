@@ -20,12 +20,12 @@ git branch --all
 echo "## git diff --name-only origin/master"
 git diff --name-only origin/master
 
-echo "## Running cpanm --installdeps ."
-cpanm --installdeps --force --notest . 
-
-export REVIEWDOG_GITHUB_API_TOKEN="${INPUT_GITHUB_TOKEN}"
-
-export PERL5LIB="${GITHUB_WORKSPACE}/modules"
+# echo "## Running cpanm --installdeps ."
+# cpanm --installdeps --force --notest . 
+#
+# export REVIEWDOG_GITHUB_API_TOKEN="${INPUT_GITHUB_TOKEN}"
+#
+# export PERL5LIB="${GITHUB_WORKSPACE}/modules"
 
 # echo "## Running perlcritic"
 # find . -regex '.*\.\(pl\|pm\|cgi\)' -exec perlcritic --gentle --profile /.perlcriticrc {} \; |
