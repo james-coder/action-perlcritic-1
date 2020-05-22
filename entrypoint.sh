@@ -1,12 +1,6 @@
 #!/bin/bash
 
-echo "## Current directory:"
-pwd
-
 cd ${GITHUB_WORKSPACE}
-
-echo "## Current directory:"
-pwd
 
 echo "## reviewdog --version"
 reviewdog --version
@@ -17,8 +11,11 @@ perlcritic --version
 echo "## cpanm -V"
 cpanm -V
 
+echo "## git status"
+git status
+echo "## git branch"
+git branch
 echo "## git diff --name-only origin/master"
-ls -altr
 git diff --name-only origin/master
 
 echo "## Running cpanm --installdeps ."
