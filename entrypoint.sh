@@ -26,7 +26,8 @@ export ESC_GITHUB_WORKSPACE=$(echo "$GITHUB_WORKSPACE" | perl -pe 's/\//\\\//g')
 
 # SUBSTR below puts the "perl -c format" into "file:line:error" format for reviewdog.
 # (Also trims ./ or ../../ or /somedir/ from beginning of file path.)
-export SUBSTR="s/(.*) at (\.\/|\.\.\/\.\.\/|$ESC_GITHUB_WORKSPACE)(.*) line (\d+)(.*)/\$3:\$4:\$1/g"
+#export SUBSTR="s/(.*) at (\.\/|\.\.\/\.\.\/|$ESC_GITHUB_WORKSPACE)(.*) line (\d+)(.*)/\$3:\$4:\$1/g"
+export SUBSTR="s/(.*) at (.\/|\/github\/workspace\/)(.*) line (\d+)(.*)/\$3:\$4:\$1/g"
 
 echo "## Running perl -c (on *.pm)"
 find . -name \*.pm -exec perl -c {} 2>&1 \; |
