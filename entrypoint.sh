@@ -31,7 +31,7 @@ export SUBSTR="s/(.*) at (.\/|\/github\/workspace\/)(.*) line (\d+)(.*)/\$3:\$4:
 
 echo "## Running perl -c (on *.pm)"
 find . -name \*.pm -exec perl -c {} 2>&1 \; |
-   grep -v " syntax OK"
+   grep -v " syntax OK" |
    perl -pe "$SUBSTR" |
    reviewdog -name="perl-syntax" -efm="%f:%l:%m" -reporter="github-pr-check"
 
