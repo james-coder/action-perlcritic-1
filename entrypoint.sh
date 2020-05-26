@@ -2,6 +2,10 @@
 
 cd ${GITHUB_WORKSPACE}
 
+#debdir is from puppet:/modules/custom_debs/files
+echo "## install debdir"
+dpkg -i /debdir/*.deb
+
 echo "## reviewdog --version"
 reviewdog --version
 echo "## perl --version"

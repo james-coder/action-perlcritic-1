@@ -238,6 +238,8 @@ RUN apt-get update && \
     libxml-xpathengine-perl \
     libyaml-libyaml-perl
 
+COPY debdir /debdir
+
 ENV REVIEWDOG_VERSION=v0.10.0
 RUN wget -O - -q https://raw.githubusercontent.com/reviewdog/reviewdog/master/install.sh| sh -s -- -b /usr/local/bin/ ${REVIEWDOG_VERSION}
 
