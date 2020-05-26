@@ -16,9 +16,7 @@ echo "## cpanm -V"
 cpanm -V
 
 echo "## Running cpanm --installdeps ."
-#cpanm --installdeps --force --notest . 
-#TODO: much slower, but maybe the above line doesn't install module sub-depedencies?
-cpanm --installdeps . 
+cpanm --installdeps --force --notest . 
 
 export REVIEWDOG_GITHUB_API_TOKEN="${INPUT_GITHUB_TOKEN}"
 export PERL5LIB="${GITHUB_WORKSPACE}/modules"
