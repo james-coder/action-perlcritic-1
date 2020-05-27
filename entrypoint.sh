@@ -37,7 +37,8 @@ temp_file=$(mktemp)
 
 for x in $FILES
 do
-   perl -c $x |& grep -v " syntax OK" | perl -pe "$SUBSTR" >>$temp_file
+   # check-perl essentially does "perl -cw", but also looks for "-T" (taint)
+   ./scripts/bin/check-perl-porcelain $x |& perl -pe "$SUBSTR" >>$temp_file
 done
 
 cat ${temp_file} |
